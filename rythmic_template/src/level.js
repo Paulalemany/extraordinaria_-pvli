@@ -1,3 +1,4 @@
+import Enemy from "./obj/enemy.js";
 export default class Level extends Phaser.Scene { 
 
     //constructor de la escena
@@ -23,7 +24,11 @@ export default class Level extends Phaser.Scene {
 
         this.area = [4];
         for (let i = 0; i < 4; i++) {
-            this.area[i] = this.add.image(300, 100 + (100 * i), 'area');
+            this.area[i] = this.add.image(300, 150 + (100 * i), 'area');
         }
+
+        /* ENEMIGOS */
+        this.enemigo = new Enemy(scene, 50, 120, 1, 5);
+
     }
 }
