@@ -1,5 +1,6 @@
 import Title from "./title.js";
 import Boot from "./boot.js";
+import Level from "./level.js";
 
 let config = {
   type: Phaser.AUTO,
@@ -12,7 +13,7 @@ let config = {
     height: 512,
     zoom: 1,
   },
-  scene: [Boot, Title],
+  scene: [Boot, Title, Level],
 	fps: {
 		target: 60
 	},

@@ -10,17 +10,11 @@ export default class Boot extends Phaser.Scene {
     preload(){
 
         //Imagenes
-        /*
-        this.load.image('ball', './assets/ball16.png');     //Pelota
-
-        this.load.image('fondo', './assets/background.png'); //Fondo
-        this.load.image('mesa', './assets/table.png');       //mesa
-        this.load.image('score', './assets/score.png');      //Puntuación
-        */
+        this.load.image('bg', './assets/jungle.png');   //Jungla
+        this.load.image('area', './assets/area.png');   //Area
 
         //Spritesheets
-        this.load.spritesheet('energy', './assets/energy.png', {frameWidth: 32, frameHeight: 32});
-        
+        this.load.spritesheet('energy', './assets/energy.png', {frameWidth: 32, frameHeight: 21});
         this.load.spritesheet("player", "assets/CH_Idle.png", {frameWidth: 128, frameHeight: 128});
         this.load.spritesheet("player_dead", "assets/CH_Dead.png", {frameWidth: 128, frameHeight: 128});
         this.load.spritesheet("player_hurt", "assets/CH_Hurt.png", {frameWidth: 128, frameHeight: 128});
@@ -29,13 +23,7 @@ export default class Boot extends Phaser.Scene {
         this.load.spritesheet("skeleton_dead", "assets/SK_Dead.png", {frameWidth: 128, frameHeight: 128});
 
         //Sonidos
-        /*
-        this.load.audio('peguinWin', './assets/sounds/win.mp3');
-        this.load.audio('peguinLose', './assets/sounds/lose.mp3');
-        this.load.audio('collide', './assets/sounds/collide.mp3');
-        this.load.audio('throw', './assets/sounds/throw_ball.mp3');
-        this.load.audio('stun', './assets/sounds/stun.mp3');
-        */
+        //this.load.audio('bgMusic', './sounds/forestMusic.mp3');
     }
 
     //Animaciones por spritesheet
@@ -56,7 +44,7 @@ export default class Boot extends Phaser.Scene {
             frames: this.anims.generateFrameNumbers("player_hurt", { start: 0, end: 2 }),
             frameRate: 5,
           });
-          
+
           this.anims.create({
             key: "skIdle",
             frames: this.anims.generateFrameNumbers("skeleton", { start: 0, end: 6 }),
@@ -99,6 +87,6 @@ export default class Boot extends Phaser.Scene {
     //Pasamos a la escena del menú
     create() {
         this.createAnimations();
-        this.scene.start("title");
+        this.scene.start("level");
     }
 }
