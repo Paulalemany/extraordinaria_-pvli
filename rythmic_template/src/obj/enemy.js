@@ -19,6 +19,8 @@ export default class Enemy extends Phaser.Physics.Arcade.Sprite {
         this.TimeToShoot = tts;
         this.TimeToShoot2 = tts + 100;
 
+        this.live = 2;
+
         /* VISUAL */
         this.play('skIdle');
 
@@ -53,12 +55,16 @@ export default class Enemy extends Phaser.Physics.Arcade.Sprite {
                 this.secondShoot(); 
             }
         }
+
+        if (this.live <= 0) {
+            this.die();
+        }
         
     }
 
     shoot() {
         this.animate(this.attackAnim);
-        new Bullet(this.scene, this.x + this.offsetX , this.y + this.offsetY, 1);
+        this.scene.bullets.push(new Bullet(this.scene, this.x + this.offsetX , this.y + this.offsetY, 1));
 
         //Si paso el contador como parámetro no me lo está reconociendo bien
         this.counter = 0;
@@ -77,5 +83,10 @@ export default class Enemy extends Phaser.Physics.Arcade.Sprite {
         if (this.anims.currentAnim.key !== anim) {
             this.anims.play(anim);
         }
+    }
+
+    die() {
+        this.scene.numEnemigos--;
+        this.destroy();
     }
 }

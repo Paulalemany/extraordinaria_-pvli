@@ -17,6 +17,7 @@ export default class Boot extends Phaser.Scene {
         this.load.image('b', './assets/S_button.png');   //s
         this.load.image('x', './assets/D_button.png');   //d
         this.load.image('y', './assets/F_button.png');   //f
+        this.load.image('heart', './assets/heart.png');  //corazon
 
         //Spritesheets
         this.load.spritesheet('energy', './assets/energy.png', {frameWidth: 32, frameHeight: 21});
@@ -92,6 +93,6 @@ export default class Boot extends Phaser.Scene {
     //Pasamos a la escena del menú
     create() {
         this.createAnimations();
-        this.scene.start("level");
+        this.scene.start("title");
     }
 }

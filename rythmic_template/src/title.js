@@ -30,21 +30,21 @@ export default class Title extends Phaser.Scene {
         //align -> alineación
 
         //TITULO DEL JUEGO
-        this.add.text(115, 25, 'Rhythmic', {
+        this.add.text(260, 25, 'Rhythmic', {
             fontFamily: 'bitdragon',
             fontSize: 50,
             stroke: "#FFFFFF" ,
             strokeThickness: 3,
-            color: '#5163BB',
+            color: '#FF0000',
             align: 'center'
         })
 
-        this.add.text(200, 80, 'Game', {
+        this.add.text(320, 80, 'Game', {
             fontFamily: 'bitdragon',
             fontSize: 50,
             stroke: "#FFFFFF" ,
             strokeThickness: 3,
-            color: '#5163BB',
+            color: '#FF0000',
             align: 'center'
         })
 
@@ -53,7 +53,7 @@ export default class Title extends Phaser.Scene {
         //Asignamos la variable al texto
 
         //1P. Game
-        this.OneplayerButton = this.add.text(200, 200, 'Normal', {
+        this.OneplayerButton = this.add.text(350, 200, 'Normal', {
             fontFamily: 'bitdragon',
             fontSize: 25,
             stroke: '#000000',
@@ -63,7 +63,7 @@ export default class Title extends Phaser.Scene {
         })
 
         //VS. Game
-        this.VSButton = this.add.text(200, 240, 'Hard', {
+        this.VSButton = this.add.text(350, 240, 'Hard', {
             fontFamily: 'bitdragon',
             fontSize: 25,
             stroke: '#000000',
