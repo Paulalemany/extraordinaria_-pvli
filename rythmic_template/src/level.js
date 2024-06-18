@@ -34,14 +34,17 @@ export default class Level extends Phaser.Scene {
         this.Y = this.add.image(585, 450, 'y').setScale(0.75,0.75);
 
         /* INPUT */
-        this.a = this.scene.input.keyboard.addKey('A');
-        this.s = this.scene.input.keyboard.addKey('S');
-        this.d = this.scene.input.keyboard.addKey('D');
-        this.f = this.scene.input.keyboard.addKey('F');
+        this.a = scene.input.keyboard.addKey('A');
+        this.s = scene.input.keyboard.addKey('S');
+        this.d = scene.input.keyboard.addKey('D');
+        this.f = scene.input.keyboard.addKey('F');
 
 
         /* ENEMIGOS */
-        this.enemigo = new Enemy(scene, 50, 120, 2, 5);
+        this.enemigos = [4];
+        for (let i = 0; i < 4; i++) {
+            this.enemigos[i] = new Enemy(scene, 50, 120 + (100 * i), i % 2, i + 1);
+        }
 
     }
 }

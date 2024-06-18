@@ -33,7 +33,7 @@ export default class Enemy extends Phaser.Physics.Arcade.Sprite {
         }, 1000);
 
         //Si tiene dos disparos el segundo será un poco después
-        if (this.numberOfShoots == 2) {
+        if (this.numberOfShoots + 1 == 2) {
             this.timeShootTwo = setInterval(() => {
                 this.counterTwo++;
             }, 1000);
@@ -48,7 +48,7 @@ export default class Enemy extends Phaser.Physics.Arcade.Sprite {
             this.shoot(this.counter); 
         }
 
-        if(this.numberOfShoots == 2) {
+        if(this.numberOfShoots + 1 == 2) {
             if (this.TimeToShoot + 1 == this.counterTwo) { 
                 this.secondShoot(); 
             }
