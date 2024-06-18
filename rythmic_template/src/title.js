@@ -85,6 +85,7 @@ export default class Title extends Phaser.Scene {
         //Lo hacemos así porque scene no existe fuera del create
         this.eventEmitter.on('select', function() {
             this.ChangeScene('level', scene, this.selection)
+            console.log(this.selection);
         }, this);
 
         /* CURSOR */

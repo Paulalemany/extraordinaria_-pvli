@@ -53,7 +53,13 @@ export default class Level extends Phaser.Scene {
         this.enemigos = [];
         this.numEnemigos = 0;
         for (let i = 0; i < 4; i++) {
-            this.enemigos.push(new Enemy(scene, 50, 120 + (100 * i), i % 2, i + 1));
+            if (this.modGame == 'vs'){  //Modo dificil
+                this.enemigos.push(new Enemy(scene, 50, 120 + (100 * i), i % 2, i + 1));
+            }
+            else {
+                this.enemigos.push(new Enemy(scene, 50, 120 + (100 * i), i % 2, 5));
+            }
+           
             this.numEnemigos++;
         }
 
@@ -135,7 +141,10 @@ export default class Level extends Phaser.Scene {
             this.scene.start("fin", "You Win!!");
         }
         else {
-            this.scene.start("fin", "GameOver");
+
+            this.timeShootTwo = setInterval(() => {
+                this.scene.start("fin", "GameOver");
+            }, 1000);
         }
         
     }

@@ -1,5 +1,5 @@
 
-export default class Level extends Phaser.Scene {
+export default class Fin extends Phaser.Scene {
     //constructor de la escena
     constructor(){
         //Nombre de la escena
@@ -8,7 +8,7 @@ export default class Level extends Phaser.Scene {
     }
 
     init(players){
-
+ 
         // settea el número de jugadores
         this.final = players;
 	}
@@ -21,17 +21,17 @@ export default class Level extends Phaser.Scene {
     create() {
         const scene = this;
 
-        this.add.text(115, 25, this.final, {
+        this.add.text(260, 25, this.final, {
             fontFamily: 'bitdragon',
             fontSize: 50,
             stroke: "#FFFFFF" ,
             strokeThickness: 3,
-            color: '#5163BB',
+            color: '#FF0000',
             align: 'center'
         })
 
         //Menu
-        this.OneplayerButton = this.add.text(200, 200, 'Menu', {
+        this.OneplayerButton = this.add.text(350, 200, 'Menu', {
             fontFamily: 'bitdragon',
             fontSize: 25,
             stroke: '#000000',

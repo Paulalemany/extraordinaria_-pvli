@@ -6,6 +6,8 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
         this.scene = scene;
 
         this.live = 5;
+        this.herAnim = 'playerHurt';
+        this.dieAnim = 'playerDead';
 
         this.liveSprite = scene.add.sprite(700, 50, 'heart').setScale(0.5,0.5);
         this.liveText = scene.add.text(660, 35, this.live, {
@@ -32,9 +34,13 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
         this.live--
         this.liveText.setText(this.live);
         //Animación herido
+        this.play(this.herAnim);
 
         if (this.live == 0) {
-            //this.scene.gameOver();
+            this.play(this.dieAnim);
+
+            //Lo comento porque como está hecho ahora se muere sumamente rápido
+            this.scene.gameOver();
         }
     }
 }

@@ -39,11 +39,8 @@ export default class Bullet extends Phaser.Physics.Arcade.Sprite {
 
     die() {
 
-        this.play(this.end);
-        setInterval(() => {
-            this.destroy();;
-        }, 250);
-
+        this.play(this.end)
+        this.destroy();
        
     }
 }
