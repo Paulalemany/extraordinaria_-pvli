@@ -28,7 +28,7 @@ export default class Level extends Phaser.Scene {
         }
 
         /* ENEMIGOS */
-        this.enemigo = new Enemy(scene, 50, 120, 1, 5);
+        this.enemigo = new Enemy(scene, 50, 120, 2, 5);
 
     }
 }

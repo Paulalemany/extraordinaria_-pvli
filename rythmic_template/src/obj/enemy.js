@@ -15,6 +15,7 @@ export default class Enemy extends Phaser.Physics.Arcade.Sprite {
         //Variables
         this.numberOfShoots = nos;
         this.counter = 0;
+        this.counterTwo = 0;
         this.TimeToShoot = tts;
         this.TimeToShoot2 = tts + 100;
 
@@ -34,7 +35,7 @@ export default class Enemy extends Phaser.Physics.Arcade.Sprite {
         //Si tiene dos disparos el segundo será un poco después
         if (this.numberOfShoots == 2) {
             this.timeShootTwo = setInterval(() => {
-                this.TimeToShoot2--;
+                this.counterTwo++;
             }, 1000);
         }
         
@@ -43,14 +44,32 @@ export default class Enemy extends Phaser.Physics.Arcade.Sprite {
 
     preUpdate(time, deltaTime) {
         super.preUpdate(time, deltaTime);
+        if (this.TimeToShoot == this.counter) { 
+            this.shoot(this.counter); 
+        }
 
-        if (this.TimeToShoot == this.counter) { this.shoot(); }
+        if(this.numberOfShoots == 2) {
+            if (this.TimeToShoot + 1 == this.counterTwo) { 
+                this.secondShoot(); 
+            }
+        }
+        
     }
 
     shoot() {
         this.animate(this.attackAnim);
         new Bullet(this.scene, this.x + this.offsetX , this.y + this.offsetY, 1);
+
+        //Si paso el contador como parámetro no me lo está reconociendo bien
         this.counter = 0;
+    }
+
+    secondShoot() {
+        this.animate(this.attackAnim);
+        new Bullet(this.scene, this.x + this.offsetX , this.y + this.offsetY, 1);
+
+        //Si paso el contador como parámetro no me lo está reconociendo bien
+        this.counterTwo = 0;
     }
 
     //Se encarga de cambiar las animaciones
