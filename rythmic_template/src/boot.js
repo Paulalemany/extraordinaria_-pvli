@@ -13,6 +13,11 @@ export default class Boot extends Phaser.Scene {
         this.load.image('bg', './assets/jungle.png');   //Jungla
         this.load.image('area', './assets/area.png');   //Area
 
+        this.load.image('a', './assets/A_button.png');   //a
+        this.load.image('b', './assets/S_button.png');   //s
+        this.load.image('x', './assets/D_button.png');   //d
+        this.load.image('y', './assets/F_button.png');   //f
+
         //Spritesheets
         this.load.spritesheet('energy', './assets/energy.png', {frameWidth: 32, frameHeight: 21});
         this.load.spritesheet("player", "assets/CH_Idle.png", {frameWidth: 128, frameHeight: 128});
