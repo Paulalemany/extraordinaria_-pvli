@@ -1,3 +1,6 @@
+import Title from "./title.js";
+import Boot from "./boot.js";
+
 let config = {
   type: Phaser.AUTO,
   parent: "juego",
@@ -9,7 +12,7 @@ let config = {
     height: 512,
     zoom: 1,
   },
-  scene: [],
+  scene: [Boot, Title],
 	fps: {
 		target: 60
 	},
