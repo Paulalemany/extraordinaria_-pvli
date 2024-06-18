@@ -24,7 +24,9 @@ export default class Enemy extends Phaser.Physics.Arcade.Sprite {
         /* VISUAL */
         this.play('skIdle');
 
+        this.idleAnim = 'skIdle';
         this.attackAnim = 'skAttack';
+        this.dieAnim = 'skDead';
 
         scene.add.existing(this);
 
@@ -46,8 +48,13 @@ export default class Enemy extends Phaser.Physics.Arcade.Sprite {
 
     preUpdate(time, deltaTime) {
         super.preUpdate(time, deltaTime);
+        
+
         if (this.TimeToShoot == this.counter) { 
             this.shoot(this.counter); 
+        }
+        else {
+            this.animate(this.idleAnim);
         }
 
         if(this.numberOfShoots + 1 == 2) {
@@ -86,7 +93,9 @@ export default class Enemy extends Phaser.Physics.Arcade.Sprite {
     }
 
     die() {
+        this.animate(this.dieAnim);
         this.scene.numEnemigos--;
+
         this.destroy();
     }
 }

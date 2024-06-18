@@ -24,7 +24,11 @@ export default class Level extends Phaser.Scene {
 
         /* ESCENA DE JUEGO */
         this.bg = this.add.image(384,256,'bg');
-        this.music = this.add.sound('bgMusic');
+
+        //Sale este error cuando pongo la música de fondo
+        //Error: Audio key "bgMusic" missing from cache at new WebAudioSound
+        //Por lo tanto lo dejo comentado, pero si no me equivoco debería ser así
+        //this.music = this.sound.add('bgMusic');
 
         this.area = [4];
         for (let i = 0; i < 4; i++) {

@@ -5,18 +5,20 @@
 
 export default class Bullet extends Phaser.Physics.Arcade.Sprite { 
     constructor(scene, x, y, direction) {
-    super(scene, x, y, 'energy');
+        super(scene, x, y, 'energy');
 
-    this.scene = scene;
-    //Direction:
-        //0 -> Quieta
-        //1 -> Derecha
-    this.direction = direction;
-    scene.add.existing(this);   //Añadimos el objeto a la escena
-    scene.physics.world.enable(this);
-    //this.setCircle(8);  //Me cambia la posición del sprite por lo que por ahora voy a quitarlo
+        this.scene = scene;
+        //Direction:
+            //0 -> Quieta
+            //1 -> Derecha
+        this.direction = direction;
+        this.end = 'energyEnd';
 
-    this.speed = 100;
+        scene.add.existing(this);   //Añadimos el objeto a la escena
+        scene.physics.world.enable(this);
+        this.setCircle(8);  
+
+        this.speed = 100;
 
     }
 
@@ -36,6 +38,12 @@ export default class Bullet extends Phaser.Physics.Arcade.Sprite {
     }
 
     die() {
-        this.destroy();
+
+        this.play(this.end);
+        setInterval(() => {
+            this.destroy();;
+        }, 250);
+
+       
     }
 }

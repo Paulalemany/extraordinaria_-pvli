@@ -29,7 +29,7 @@ export default class Boot extends Phaser.Scene {
         this.load.spritesheet("skeleton_dead", "assets/SK_Dead.png", {frameWidth: 128, frameHeight: 128});
 
         //Sonidos
-        //this.load.audio('bgMusic', './sounds/forestMusic.mp3');
+        this.load.audio('bgMusic', './sounds/forestMusic.mp3');
     }
 
     //Animaciones por spritesheet
